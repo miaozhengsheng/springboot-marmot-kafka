@@ -8,10 +8,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageConsumer {
 	private static Logger logger = LoggerFactory.getLogger(MessageConsumer.class);
-    // private Gson gson = new GsonBuilder().create();
 
-    @KafkaListener(topics = "mutipl-partitions-topic")
-    public void onMessage(String payMessage) {
-        logger.info("MessageConsumer: onMessage: message is: [" + payMessage + "]");
+    @KafkaListener(topics = "mutipl-partitions-topic",groupId="mutipl-partitions-topi-groupid")
+    public void onMessage1(String payMessage) {
+    	/**
+    	 * 一个partition 只能被一个 sub消费
+    	 * 一份sub可以消耗多个partition
+    	 */
+        logger.info("MessageConsumer1: onMessage: message is: [" + payMessage + "]");
+    }
+    
+    @KafkaListener(topics = "mutipl-partitions-topic",groupId="mutipl-partitions-topi-groupid")
+    public void onMessage2(String payMessage) {
+    	/**
+    	 * 一个partition 只能被一个 sub消费
+    	 * 一份sub可以消耗多个partition
+    	 */
+        logger.info("MessageConsumer2: onMessage: message is: [" + payMessage + "]");
     }
 }
