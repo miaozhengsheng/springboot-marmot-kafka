@@ -11,12 +11,7 @@ public class KafkaConsumeAware implements ApplicationContextAware{
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
-		
 		System.out.println("服务启动完成");
 	}
-
-
-	
-	
 
 }
