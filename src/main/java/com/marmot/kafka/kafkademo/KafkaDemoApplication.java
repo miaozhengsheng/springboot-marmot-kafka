@@ -18,7 +18,7 @@ public class KafkaDemoApplication {
 	public ApplicationRunner producer(MessageProducer producer){
 		
 		return (args)->{
-			producer.onMessage("");
+			// producer.onMessage("");
 		};
 	}
 
